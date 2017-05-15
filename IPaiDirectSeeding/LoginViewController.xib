@@ -15,6 +15,8 @@
                 <outlet property="loginButton" destination="Rup-Zu-qeR" id="EvG-8j-1Xv"/>
                 <outlet property="loginDetailLabel" destination="gBz-fl-Hua" id="lGz-IM-gUO"/>
                 <outlet property="loginLabel" destination="JID-P3-n49" id="EGT-Kg-d3f"/>
+                <outlet property="pwdTF" destination="JlA-x5-Dtp" id="X14-T5-vtr"/>
+                <outlet property="userNameTF" destination="xGq-wJ-3di" id="2um-hi-O0D"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="ViewHightSet" destination="LsC-pg-pGB" id="yjs-oh-31M"/>
                 <outletCollection property="ViewHightSet" destination="p6e-0M-PKp" id="2Nt-kf-XdB"/>

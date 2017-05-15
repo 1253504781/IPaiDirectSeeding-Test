@@ -69,6 +69,6 @@ typedef void (^requestFailedBlock) (NSError *error);
  *
  
 */
-- (void)someViewController:(SomeViewController *)someViewController sendToAnotherVCWithName:(NSString *)name andIDNum:(NSString *)idNum
+//- (void)someViewController:(SomeViewController *)someViewController sendToAnotherVCWithName:(NSString *)name andIDNum:(NSString *)idNum
 
 @end

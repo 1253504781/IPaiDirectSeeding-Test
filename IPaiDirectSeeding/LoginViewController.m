@@ -33,8 +33,10 @@
 @property (nonatomic ,copy) NSString *account;
 @property (nonatomic ,copy) NSString *password;
 
-@property (nonatomic,copy) UITextField *userNameTF;
-@property (nonatomic,copy) UITextField *pwdTF;
+
+@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *pwdTF;
+
 
 @property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *ViewHightSet;
 
@@ -81,24 +83,8 @@
     CGColorRef colorrefview = CGColorCreate(color,(CGFloat[]){ 217/255.0, 217/255.0, 217/255.0, 1 });
     [self.buttomView.layer setBorderColor:colorrefview];
     
-    //名字输入框
-//    _userNameTF = [[UITextField alloc]initWithFrame:CGRectMake(10, 0, self.buttomView.bounds.size.width , self.buttomView.bounds.size.height/2 - 1)];
-//    _userNameTF.placeholder = @"您的手机号";
-//    _userNameTF.tag = 101;
-//    [self.buttomView addSubview:_userNameTF];
-//    
-//    //分割线
-//    UILabel *line1 = [[UILabel alloc]initWithFrame:CGRectMake(0, _userNameTF.bounds.size.height , self.buttomView.bounds.size.width, 1)];
-//    line1.backgroundColor = [UIColor colorWithRed:220/255 green:117/255 blue:90/255 alpha:0.1];
-//    [self.buttomView addSubview:line1];
-//    
-//    
-//    //验证码输入框
-//     _pwdTF = [[UITextField alloc]initWithFrame:CGRectMake(10 * KScaleWidth, (_userNameTF.bounds.size.height + 1) * KScalenHeight , self.buttomView.bounds.size.width, self.buttomView.bounds.size.height/2)];
-//    _pwdTF.placeholder = @"登陆密码";
-//    _pwdTF.tag = 102;
-//    [self.buttomView addSubview:_pwdTF];
     
+    //屏幕适配
     for (NSLayoutConstraint *constraint in _ViewHightSet) {
         constraint.constant *= KScalenHeight;
     }
@@ -106,7 +92,7 @@
     for (NSLayoutConstraint *constraint in _viewWidthSet) {
         constraint.constant *= KScaleWidth;
     }
-
+   //字体适配
     _loginLabel.font = [UIFont systemFontOfSize:25 * KScalenHeight];
     _loginDetailLabel.font = [UIFont systemFontOfSize:14 * KScalenHeight];
 }
@@ -114,7 +100,7 @@
 
 
 #pragma ----textField的代理方法
-
+//设置数字键盘
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
@@ -215,14 +201,15 @@
                 NSString *userRole = dic[@"data"][@"userRole"];
                 NSString *success = dic[@"success"];
                 
-//                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//                [userDefaults setObject:nickname forKey:@"userNickname"];
-//                [userDefaults setObject:userImage forKey:@"userImg"];
-//                [userDefaults setObject:userRole forKey:@"userRole"];
-//                [userDefaults setObject:success forKey:@"success"];
-//                [userDefaults synchronize];
-//                NSLog(@"--------UserDefault:%@",[userDefaults objectForKey:@"success"]);
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:nickname forKey:@"userNickname"];
+                [userDefaults setObject:userImage forKey:@"userImg"];
+                [userDefaults setObject:userRole forKey:@"userRole"];
+                [userDefaults setObject:success forKey:@"success"];
+                [userDefaults synchronize];
+                NSLog(@"--------UserDefault:%@",[userDefaults objectForKey:@"success"]);
                 
+                simpleAlertView(@"登陆成功");
                 [self clickBackBtn:self];
                 
             }else{

@@ -40,7 +40,7 @@
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    self.isLogin = [defaults objectForKey:@"success"];
 //    self.userRole = [defaults objectForKey:@"userRole"];
-//    NSLog(@"登陆状态：%@---------登陆角色：%@",self.isLogin,self.userRole);
+    NSLog(@"登陆状态：%@---------登陆角色：%@",self.isLogin,self.userRole);
 }
 
 
